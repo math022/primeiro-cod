@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+
+class HelloWorld {
+    static void Main() {
+        List<string> noms = new List<string>();
+
+        Console.Write("Introduza um nome: ");
+        string nome = Console.ReadLine();
+
+        noms.Add("Matheus");
+        noms.Add("Guilherme");
+        noms.Add("Mateus");
+        noms.Add("Natália");
+
+        bool encontrei = false;
+
+        for (int i = 0; i < noms.Count; i++) {
+            
+            // pra comparar sem diferenciar entre maiúsculas e minúsculas
+            if (noms[i].ToUpper() == nome.ToUpper()) {
+                encontrei = true;
+                noms[i] = "Matheus";  
+            }
+        }
+
+        Console.Write("Lista de nomes: ");
+
+        if (encontrei) {
+            for (int i = 0; i < noms.Count; i++) {
+                Console.Write(noms[i]);
+
+                // Pra adicionar vírgula entre os nomes
+                if (i < noms.Count - 1) {
+                    Console.Write(", ");
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Nome encontrado.");
+        } 
+        else {
+            Console.WriteLine("Nome não encontrado.");
+        }
+    }
+}
